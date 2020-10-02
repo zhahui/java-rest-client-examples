@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>net.huizha.examples</groupId>
-  <artifactId>java-rest-client-examples</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+    <groupId>net.huizha.examples</groupId>
+    <artifactId>java-rest-client-examples</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
 
-  <name>java-rest-client-examples</name>
-  <description>My LeetCode implementation in Java</description>
-  <url>http://www.example.com</url>
+    <name>java-rest-client-examples</name>
+    <description>My LeetCode implementation in Java</description>
+    <url>http://www.example.com</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -28,6 +28,9 @@
         <maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
 
         <junit.version>4.13</junit.version>
+        <log4j.version>2.13.3</log4j.version>
+        <apache.httpclient.fluent-api.version>4.5.12</apache.httpclient.fluent-api.version>
+        <jackson.version>2.11.2</jackson.version>
     </properties>
 
     <build>
@@ -82,6 +85,31 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>fluent-hc</artifactId>
+            <version>${apache.httpclient.fluent-api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20200518</version>
         </dependency>
     </dependencies>
 </project>

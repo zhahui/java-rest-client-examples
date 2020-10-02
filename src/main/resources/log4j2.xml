@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- threshold can be all|debug|info|warn|error|fatal|off|null, default is null -->
+<Configuration status="WARN">
+    <Properties>
+        <!-- date example: 2020-06-14T20:01:18,309-0400 . This is equivalent to: yyyy-MM-dd'T'HH:mm:ss,SSSXX -->
+        <Property name="conversion.pattern">%d{ISO8601_OFFSET_DATE_TIME_HHMM} %-5p %c{1} (%M:%L) - %m%n</Property>
+    </Properties>
+    <Appenders>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="${conversion.pattern}" />
+        </Console>
+
+        <File name="FileAppender" fileName="logs/app.log">
+            <PatternLayout pattern="${conversion.pattern}" />
+        </File>
+
+        <RollingFile name="RollingFileAppender" fileName="logs/app-rolling.log"
+            filePattern="logs/${date:yyyy-MM}/app-rolling-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${conversion.pattern}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="20 MB" />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="ALL">
+            <AppenderRef ref="ConsoleAppender" />
+            <AppenderRef ref="FileAppender" />
+            <AppenderRef ref="RollingFileAppender" />
+        </Root>
+    </Loggers>
+</Configuration>
